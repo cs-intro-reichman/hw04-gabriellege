@@ -1,23 +1,24 @@
 public class ArrCharOps {
+
     public static void main(String[] args) {
         String str = "clearly";
         char[] arr1 = {'c','l','e','a','r','l','y'};
-        char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
+        char[] arr2 = {'U','n','d','e','r','s','t','o','o','d'};
         System.out.println(str);
         println(arr1);
         System.out.println(charAt(arr1,2));
         System.out.println(indexOf(arr1,'l'));
         System.out.println(indexOf(arr1,'l',3));
-        System.out.println(lastIndexOf(arr1, 'l'));
-        System.out.println(concat(arr1, arr2));
-        System.out.println(subArray(arr2, 2, 9));
-        System.out.println(compareTo("abcd", "abcd"));
-        System.out.println(compareTo("abc", "abcd"));
-        System.out.println(compareTo("abw", "abcd"));
-        System.out.println(compareTo("Abcd", "a"));
-        System.out.println(compareTo("apple", "banana"));
-        System.out.println(compareTo("apple", "applepie"));
-        System.out.println(compareTo("Zoo", "zoo"));
+        System.out.println(lastIndexOf(arr1,'l'));
+        System.out.println(concat(arr1,arr2));
+        System.out.println(subArray(arr2,2,9));
+        System.out.println(compareTo("abcd","abcd"));
+        System.out.println(compareTo("abc","abcd"));
+        System.out.println(compareTo("abw","abcd"));
+        System.out.println(compareTo("Abcd","a"));
+        System.out.println(compareTo("apple","banana"));
+        System.out.println(compareTo("apple","applepie"));
+        System.out.println(compareTo("Zoo","zoo"));
         System.out.println(hashCode(arr1));
         System.out.println(hashCode(arr2));
     }
@@ -97,6 +98,9 @@ public class ArrCharOps {
     }
 
     public static int compareTo(String str1, String str2) {
+        if (str1 == null || str2 == null) return -2;
+        if (str1.length() == 0 || str2.length() == 0) return -2;
+
         int min = Math.min(str1.length(), str2.length());
         for (int i = 0; i < min; i++) {
             char c1 = str1.charAt(i);
@@ -106,6 +110,7 @@ public class ArrCharOps {
         }
         if (str1.length() < str2.length()) return -1;
         if (str1.length() > str2.length()) return 1;
+
         return 0;
     }
 }
