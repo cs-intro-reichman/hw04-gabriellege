@@ -15,7 +15,7 @@ public class MyString {
         System.out.println(contains("personality", "dad"));
         System.out.println(contains("resignation", "sign"));
     }
-
+    
     public static String lowerCase(String str) {
         char[] arr = str.toCharArray();
         for (int i = 0; i < arr.length; i++) {
@@ -25,20 +25,24 @@ public class MyString {
         }
         return new String(arr);
     }
-
+    
     public static boolean contains(String str1, String str2) {
         str1 = lowerCase(str1);
         str2 = lowerCase(str2);
-
+        System.out.println(str1);
+        System.out.println(str2);
+        
         for (int i = 0; i <= str1.length() - str2.length(); i++) {
             int j = 0;
             while (j < str2.length() && str1.charAt(i + j) == str2.charAt(j)) {
                 j++;
             }
             if (j == str2.length()) {
+                System.out.println("true");
                 return true;
             }
         }
+        System.out.println("false");
         return false;
     }
 }
