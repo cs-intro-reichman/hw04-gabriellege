@@ -19,9 +19,7 @@ public class MyString {
     public static String lowerCase(String str) {
         char[] arr = str.toCharArray();
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] >= 'A' && arr[i] <= 'Z') {
-                arr[i] = (char)(arr[i] + 32);
-            }
+            arr[i] = Character.toLowerCase(arr[i]);
         }
         return new String(arr);
     }
@@ -30,12 +28,15 @@ public class MyString {
         str1 = lowerCase(str1);
         str2 = lowerCase(str2);
 
-        for (int i = 0; i <= str1.length() - str2.length(); i++) {
-            int j = 0;
-            while (j < str2.length() && str1.charAt(i + j) == str2.charAt(j)) {
-                j++;
-            }
-            if (j == str2.length()) {
+        int n = str1.length();
+        int m = str2.length();
+
+        if (m == 0) return true;
+        if (m > n) return false;
+
+        for (int i = 0; i <= n - m; i++) {
+            String sub = str1.substring(i, i + m);
+            if (sub.equals(str2)) {
                 return true;
             }
         }
