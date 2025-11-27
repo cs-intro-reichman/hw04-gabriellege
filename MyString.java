@@ -29,12 +29,11 @@ public class MyString {
     public static boolean contains(String str1, String str2) {
         str1 = lowerCase(str1);
         str2 = lowerCase(str2);
-        int n = str1.length();
-        int m = str2.length();
-        if (m > n) return false;
-        for (int i = 0; i <= n - m; i++) {
+        if (str2.length() == 0) return true;
+        if (str2.length() > str1.length()) return false;
+        for (int i = 0; i <= str1.length() - str2.length(); i++) {
             boolean match = true;
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j < str2.length(); j++) {
                 if (str1.charAt(i + j) != str2.charAt(j)) {
                     match = false;
                     break;
